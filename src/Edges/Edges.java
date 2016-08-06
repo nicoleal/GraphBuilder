@@ -1,9 +1,9 @@
-package Nodes;
+package Edges;
 /**
  * 
  */
 
-public class Verticies extends Vertex
+public class Edges extends Edge
 {
 
 	/**

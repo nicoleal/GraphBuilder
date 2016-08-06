@@ -1,9 +1,9 @@
-package Nodes;
 /**
  * 
  */
+package Edges;
 
-public class TreeVerticies extends Verticies
+public class TreeEdges extends Edges
 {
 
 	/**
