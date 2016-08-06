@@ -126,7 +126,7 @@ public class Vertex
 	* 
 	* @param name:
 	*/
-	private void setName(int name)
+	protected void setName(int name)
 	{
 		this.name = name;
 	}
@@ -136,7 +136,7 @@ public class Vertex
 	* 
 	* @param maxDegree:
 	*/
-	private void setMaxDegree(int maxDegree)
+	protected void setMaxDegree(int maxDegree)
 	{
 		this.maxDegree = maxDegree;
 	}	
@@ -145,10 +145,18 @@ public class Vertex
 	* setCurrDegree: 
 	* 
 	* @param currDegree:
+	* @throws Exception 
 	*/
-	private void setCurrDegree(int currDegree)
+	protected void setCurrDegree(int currDegree) throws Exception
 	{
-		this.currDegree = currDegree;
+		if (canAddNeighbors())
+		{
+			this.currDegree = currDegree;
+		}
+		else
+		{
+			throw new Exception("This vertex is already at its max degree");
+		}
 	}
 	
 	
@@ -165,7 +173,7 @@ public class Vertex
 	*/
 	public boolean canAddNeighbors()
 	{
-		return (currDegree != maxDegree);
+		return (currDegree < maxDegree);
 	}
 	
 	/**
@@ -207,8 +215,9 @@ public class Vertex
 		
 	/**
 	* makeLeaf:  
+	 * @throws Exception 
 	*/
-	protected void makeLeaf()
+	protected void makeLeaf() throws Exception
 	{
 		setMaxDegree(1);
 		setCurrDegree(1);
@@ -226,8 +235,9 @@ public class Vertex
 	
 	/**
 	* reset:  
+	 * @throws Exception 
 	*/
-	protected void reset()
+	protected void reset() throws Exception
 	{
 		setMaxDegree(DEFAULT_MAX_DEGREE);
 		setCurrDegree(DEFAULT_CURR_DEGREE);
