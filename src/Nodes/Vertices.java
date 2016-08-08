@@ -114,18 +114,27 @@ public class Vertices
 	 * setCommunityItems:
 	 * 
 	 * @param communityItems:
+	 * @throws Exception 
 	 */
-	protected void setCommunityItems(int communityItems)
+	protected void setCommunityItems(int communityItems) throws Exception
 	{
-		this.communityItems = communityItems;
+		if (getCommunityItems() <= getGraphSize())
+		{
+			this.communityItems = communityItems;
+		}
+		else
+		{
+			throw new Exception("There can't be more items in the graph than the number of vertices");
+		}
 	}
 	
 	/**
 	 * setGraphSize:
 	 * 
 	 * @param graphSize:
+	 * @throws Exception 
 	 */
-	protected void setGraphSize(int graphSize)
+	protected void setGraphSize(int graphSize) throws Exception
 	{
 		Vertex[] temp = new Vertex[graphSize];
 		setCommunity(copyToTemp(temp));
@@ -148,11 +157,21 @@ public class Vertices
 	}
 	
 	/**
-	 * fullCommunity:
+	 * isEmpty:
 	 * 
 	 * @return
 	 */
-	public boolean fullCommunity()
+	public boolean isEmpty()
+	{
+		return (getCommunityItems() == 0);
+	}
+	
+	/**
+	 * isFull:
+	 * 
+	 * @return
+	 */
+	public boolean isFull()
 	{
 		return (getCommunityItems() == getGraphSize());
 	}
@@ -164,11 +183,30 @@ public class Vertices
 	 ****************************************************************************/
 	
 	/**
+	 * addVertex - No-ARG Version:
+	 */
+	protected void addVertex()
+	{
+		//TODO
+	}
+	
+	/**
+	 * addVertex - 1-ARG Version:
+	 * 
+	 * @param v:
+	 */
+	protected void addVertex(Vertex v)
+	{
+		//TODO
+	}
+	
+	
+	/**
 	 * copyToNew:
 	 * 
 	 * @return newArray[]:
 	 */
-	protected Vertex[] copyToNew()
+ 	protected Vertex[] copyToNew()
 	{
 		Vertex[] newArray = new Vertex[getGraphSize()];
 		
@@ -185,8 +223,9 @@ public class Vertices
 	 * 
 	 * @param temp[]:
 	 * @return temp[]:
+	 * @throws Exception 
 	 */
-	protected Vertex[] copyToTemp(Vertex[] temp)
+	protected Vertex[] copyToTemp(Vertex[] temp) throws Exception
 	{
 		if (temp.length < getGraphSize())
 		{
@@ -209,5 +248,31 @@ public class Vertices
 		}
 		
 		return temp;
+	}
+	
+	/**
+	 * removeVertex:
+	 * 
+	 * @param location:
+	 */
+	protected void removeVertex(int location)
+	{
+		//TODO
+	}
+	
+	/**
+	 * reset:
+	 */
+	protected void reset()
+	{
+		//TODO
+	}
+	
+	/**
+	 * sort:
+	 */
+	protected void sort()
+	{
+		//TODO
 	}
 }
