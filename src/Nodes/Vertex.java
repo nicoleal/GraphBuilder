@@ -173,7 +173,7 @@ public class Vertex
 	*/
 	public boolean canAddNeighbors()
 	{
-		return (currDegree < maxDegree);
+		return (getCurrDegree() < getMaxDegree());
 	}
 	
 	/**
@@ -183,7 +183,7 @@ public class Vertex
 	*/
 	public boolean hasNeighbors()
 	{
-		return (currDegree >= 1);
+		return (getCurrDegree() >= 1);
 	}
 	
 	/**
@@ -193,7 +193,7 @@ public class Vertex
 	 */
 	public boolean hasName()
 	{
-		return (name >= 0);
+		return (getName() >= 0);
 	}
 	
 	/**
@@ -203,7 +203,7 @@ public class Vertex
 	*/
 	public boolean isLeaf()
 	{
-		return (currDegree == 1);
+		return (getCurrDegree() == 1);
 	}
 		
 	
